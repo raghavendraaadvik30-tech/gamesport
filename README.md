@@ -87,3 +87,16 @@ babel.config.js               Expo Babel configuration
 package.json                  Scripts and dependencies
 tsconfig.json                 TypeScript paths/config
 ```
+
+## Windows dependency reset
+
+If a previous install left an incomplete `node_modules` folder or an old lockfile, run this from PowerShell after pulling `main`:
+
+```powershell
+Remove-Item -Recurse -Force node_modules -ErrorAction SilentlyContinue
+Remove-Item -Force package-lock.json -ErrorAction SilentlyContinue
+npm install
+npm run dev -- --clear
+```
+
+The project pins the Expo SDK 52 dependency family. Run `npm install` before `npx expo install --fix`; otherwise `npx` may download a newer Expo CLI while the local Expo package is not installed yet. `react-native-svg`, `react-native-web`, `react-dom`, `expo-asset`, and `query-string` are included because the icon, asset, and web/router bundles need them.
