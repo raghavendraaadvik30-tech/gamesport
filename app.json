@@ -7,7 +7,7 @@
     "scheme": "gamespot",
     "userInterfaceStyle": "dark",
     "newArchEnabled": true,
-    "plugins": ["expo-router", "expo-image-picker"],
+    "plugins": ["expo-router", "expo-image-picker", "expo-asset"],
     "experiments": { "typedRoutes": true },
     "ios": { "supportsTablet": true, "bundleIdentifier": "com.gamespot.app" },
     "android": { "package": "com.gamespot.app" }
